@@ -1,0 +1,5 @@
+page.insert_html  'aremark', partial => 'comment'
+                 
+page.visual_effect :highlight, 'list', :duration => 3
+
+

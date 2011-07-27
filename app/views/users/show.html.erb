@@ -1,0 +1,62 @@
+<div id="box">
+<% if @current_user %>
+  <div id="sidebar">
+     <%= render :partial => 'sidebar' %>
+  </div>
+   
+ <div id="story">
+      <h1><%= @user.login %>&#39;s tale </h1>
+      <%= image_tag @user.photo.url(:main) %>
+      <h4>Content</h4>
+      <h5>Make a comment:</h5>
+
+   <div id='aremark'>
+        <%= form_for [@user, Comment.new],:remote => true do |form| %>
+          <div id="body">
+            <%= form.text_field :body %>
+          </div>
+          <% form.hidden_field :user_id, :value => @current_user.login %>
+          <p>
+          <%= form.submit %>
+          </p>
+        <% end %>
+      
+        <% @user.comments.each do |comment| %>
+
+          <div id="remark"<p><%= comment.body %>
+          <div id="commenter"<%= comment.commenter %></p> 
+          </div> 
+          </div>    
+       <div id="subcomremark">     
+         <% comment.subcomments.each do |subcomment| %>
+            <div id="subremark" ><p><%= subcomment.body %>       
+            <div id="commenter" ><%= subcomment.comment_id %></p>
+            </div>
+            </div>
+          <% end %>
+        </div>  
+          <%= form_for [comment, Subcomment.new],:remote => true do |form| %>
+              <div id="body">
+              <%= form.text_field :body %>
+              </div>                   
+              <%= form.submit %>           
+           <% end %>       
+          <% end %>
+       
+     </div>
+   </div>
+  <div id="searchbox">
+     <% if @users.size <3 %>
+       <% @users.each do |user| %>
+         <h3><%=  link_to user.login, user_path(user) %></h3>
+       <% end %>
+     <% end %>      
+ 
+  <%= form_tag user_path, :method => 'get' do %>
+    <%= text_field_tag "search", params[:search] %><br>
+    <%= submit_tag "search", :name => nil, :id => "search" %>
+  <% end  %>
+</div>
+</div>
+
+<% end %>

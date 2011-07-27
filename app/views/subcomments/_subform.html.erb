@@ -1,0 +1,12 @@
+<%= form_for [Comment, index, Subcomment.new],:remote => true do |form| %>
+
+   <div id="body">
+      <%= form.text_field :body %>
+   </div>           
+      <% form.hidden_field :comment_id,  :value => 1 %>         
+   <p>
+      <%= form.submit %> 
+   </p>
+<% end %>
+
+

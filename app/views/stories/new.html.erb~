@@ -1,0 +1,17 @@
+<h2>Register</h2>
+  <% form_for @story, :url => stories_path do |form| %>
+<fieldset>
+<legend>Enter Your Details</legend>
+<%= error_messages_for "stories" %>
+<label for="login">Author:</label>
+  <%= form.text_field :author %>
+<br />
+<label for="email">Title:</label>
+  <%= form.text_field :title %>
+<br />
+<label for="password">Body:</label>
+  <%= form.password_field :body %>
+<br />
+  <%= submit_tag "Submit!", :class => "submit" %>
+</fieldset>
+  <% end %>

@@ -1,0 +1,6 @@
+<%debugger%>
+page.replace_html  'aremark', partial => 'comment'
+page.redirect_to story_path(@story), :controller => 'stories'
+page.visual_effect :highlight, 'list', :duration => 3
+
+

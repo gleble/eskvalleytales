@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @subcomment.body %>
+</p>
+
+<p>
+  <b>Commenter:</b>
+  <%= @subcomment.commenter %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @subcomment.comment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_subcomment_path(@subcomment) %> |
+<%= link_to 'Back', subcomments_path %>

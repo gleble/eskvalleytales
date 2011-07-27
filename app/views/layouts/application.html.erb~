@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Wagging Tales</title>
+  <%= stylesheet_link_tag 'style' %>
+  
+</head>
+<body>
+<div id="header">
+<p>Wagging Tales</p>
+</div>
+<div id="login_logout">
+<% if @current_user %>
+Logged in as:
+<%= @current_user.login %>
+<em><%= link_to "(Logout)", session_path,
+:method => :delete %></em>
+<% else %>
+<em>Not logged in.</em>
+<%= link_to 'Login', new_session_path %>
+<% end %>
+</div><br>
+<%= yield %>
+<h3><%= link_to 'Index', stories_path %></h3>
+</body>
+</html>

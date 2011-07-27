@@ -1,0 +1,7 @@
+page.insert_html :bottom, 'aremark', :partial => 'user/pig'
+
+                 
+page.visual_effect :highlight, 'aremark', :duration => 8
+page.replace_html 'header', 'pig'
+                 
+

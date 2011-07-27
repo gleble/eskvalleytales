@@ -1,0 +1,18 @@
+<h2>Create Comment</h2>
+  <% form_for @comment do |form| %>
+<fieldset>
+<legend>Enter Your Details</legend>
+<%= error_messages_for "comments" %>
+<label for="body">Body:</label>
+  <%= form.text_field :body %>
+<br />
+  <%= submit_tag "Submit!", :class => "submit" %>
+</fieldset>
+  <% end %>
+<ul>
+<% unless current_page? :action => "index" %>
+ <li><%= link_to "Home", {:action => "index"} %></li>
+<% else %>
+ <li class="tab_menu_active">Home</li>
+<% end %>
+</ul>

@@ -1,0 +1,5 @@
+<% @story.each do |story| %>
+<h3 id='index'><%= link_to story.author, story %></h3>
+<%= image_tag story.photo.url %>
+<% end %>
+

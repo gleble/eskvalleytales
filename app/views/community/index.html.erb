@@ -1,0 +1,23 @@
+<h2><%= @title %></h2>
+<fieldset>
+  <legend>Alphabetical Index</legend>
+  <% @letters.each do |letter| %>
+    <% letter_class = (letter == @initial) ? "letter_current" : "letter" %>
+    <%= link_to letter, { :action => "index", :id => letter },
+    :class => letter_class %>
+  <% end %>
+<br clear="all" />
+</fieldset>
+<% if @users and not @users.empty? %>
+<table class="users" border="0" cellpadding="5" cellspacing="1">
+<% @users.each do |user| %>
+<tr class="<%= cycle('odd', 'even') %>">
+<td><%=  user %>
+</td>
+
+</tr>
+<% end %>
+</table>
+<% end %>
+<%= render  :partial => 'search' %>
+

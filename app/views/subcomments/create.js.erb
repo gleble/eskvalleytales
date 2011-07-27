@@ -1,0 +1,3 @@
+<% Rails.logger.debug "!!! the value of @user is '#{@user.inspect}' with the class of  '#{@user.class.name}'" -%>
+$('#subcomremark').html('<%= escape_javascript(render(:partial => "subcomments/subcomment",  :object => @user )) %>');
+

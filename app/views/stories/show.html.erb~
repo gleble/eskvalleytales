@@ -1,0 +1,15 @@
+<h1>Stories</h1>
+<h4>Title</h4>
+<%= @story.title %>
+<h4>Content</h4>
+<%= @story.body %>
+<h4>submitted by:<%= @story.user.login %><br>
+<h2>Make a comment</h2>
+  <% form_for @comment do |form| %>
+<fieldset>
+<label for="body"> Comment:</label>
+  <div id="input"><%= form.text_area :body %></div>
+<%= link_to_remote "Submit Comment",
+   :url => { :controller => "comments", :action => "create" , :story_id => @story.id } %>
+</fieldset>
+  <% end %>

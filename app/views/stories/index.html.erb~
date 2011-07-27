@@ -1,0 +1,2 @@
+<%= "Showing #{ pluralize(@stories.size, 'story') }" %>
+<%= render :partial => 'story', :collection => @stories %>

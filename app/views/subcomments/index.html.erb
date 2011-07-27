@@ -1,0 +1,27 @@
+<h1>Listing subcomments</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subcomments.each do |subcomment| %>
+  <tr>
+    <td><%= subcomment.body %></td>
+    <td><%= subcomment.commenter %></td>
+    <td><%= subcomment.comment_id %></td>
+    <td><%= link_to 'Show', subcomment %></td>
+    <td><%= link_to 'Edit', edit_subcomment_path(subcomment) %></td>
+    <td><%= link_to 'Destroy', subcomment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subcomment', new_subcomment_path %>

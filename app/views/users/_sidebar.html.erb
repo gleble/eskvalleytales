@@ -1,0 +1,26 @@
+<div class="sidebar_box">
+<%= render :partial => 'friend' %>
+<% if not (@current_user.id == @user.id) %>
+
+<ul>
+  <li><%= link_to "Email this user",
+    :controller => "email", :action => "correspond",
+    :id => @user.id %></li>
+   <% if (@user.id  = @user.id) %>
+  <li><%= friendship_status(@current_user, @user) %>
+  <% unless Friendship.exists?(@current_user, @user) %>
+  <br />
+  <%= link_to "Request friendship with #{@user.login}",
+    { :controller => "friendship", :action => "create",
+    :id => @user.id },
+    :confirm =>
+    "Send friend request to #{@user.login}?" %>
+    <% end %>
+   <% end %> 
+  </li>
+</ul>
+<% end %>
+
+
+</div>
+

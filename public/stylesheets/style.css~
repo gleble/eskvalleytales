@@ -1,0 +1,10 @@
+#header{
+       
+       text-align:center;
+       background-color: #f0f;
+}
+p {
+       font-family:Arial ;
+       font-weight:bold;
+       font-size:44px;
+}

@@ -1,0 +1,23 @@
+<% if @current_user %>
+<div class="sidebar_box">
+<span class="header">Actions</span>
+<br clear="all" />
+</h2>
+<%= @story.user.login %>
+<ul>
+  <li><%= link_to "Email this user",
+    :controller => "email", :action => "correspond",
+    :id => @story.id %></li>
+  <li><%= friendship_status(@current_user, @story.user) %>
+  <% unless Friendship.exists?(@current_user, @story.user) %>
+  <br />
+  <%= link_to "Request friendship with #{@story.user.login}",
+    { :controller => "friendship", :action => "create",
+    :id => @story.user.login },
+    :confirm =>
+    "Send friend request to #{@story.user.login}?" %>
+    <% end %>
+  </li>
+</ul>
+</div>
+<% end %>

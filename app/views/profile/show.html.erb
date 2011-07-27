@@ -1,0 +1,31 @@
+<p>
+The future home of <%= @user.login %>.
+</p>
+<div id="sidebar">
+
+</div>
+<h1><%= @story.user.login %>'s story </h1>
+<%= render :partial => 'friend' %>
+
+
+<br>
+
+
+<h4>Content</h4>
+<div id="story"><%= @story.body %></div>
+<div id='aremark'>
+<%= render :partial => 'comment' %>
+</div>
+
+    <h5><label for="login">Make a comment:</label></h5>
+  <% remote_form_for :comment,:url=>story_comments_path(@story) do |form| %>
+       <div id="body"><%= form.text_field :body %></div>
+       <p><%= submit_tag  'Comment' %></p>
+
+
+
+    
+  <% end %>
+
+
+

@@ -1,0 +1,15 @@
+<% form_tag({ :action => "search" }, :method => "get") do %>
+<fieldset>
+<legend>Search</legend>
+<div class="form_row">
+<label for="q">Search for:</label>
+<%= text_field_tag "q", params[:q] %>
+<input type="submit" value="Search" />
+</div>
+</fieldset>
+<% end %>
+<% if @usersp %>
+<%  @usersp.each do |user| %>
+<h3><%= link_to user.login, story_path(@story.user.id) %></h3>
+<% end %>
+<% end %>

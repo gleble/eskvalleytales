@@ -1,0 +1,4 @@
+
+<% @story.each do |story| %>
+<h3><%= link_to story.title, story %></h3>
+<% end %>

@@ -1,0 +1,16 @@
+      <% comment.subcomments.each do |subcomment| %>
+         <div id="subremark" >
+           <p><%= subcomment.body %></p>
+         <div id="commenter" >
+          <p><%= subcomment.commenter %></p>
+         </div>
+         </div>
+        
+        
+          <%= form_for [comment, Subcomment.new],:remote => true do |form| %>
+            <div id="body">
+              <%= form.text_field :body %>
+            </div>                   
+            <%= form.submit %>           
+          <% end %>
+      <% end %>

@@ -1,0 +1,14 @@
+<% @comment = Comment.find(params[:comment_id]) %>
+<% @user.comments.each do |comment| %>
+          <div id = "remark" ><p><%= comment.body %>
+          <div id = "commenter" ><%= comment.commenter %></p> 
+          </div> 
+          </div>   
+
+  <% comment.subcomments.each do |subcomment| %>
+            <div id = "subremark" ><p><%= subcomment.body %></p>          
+            <div id = "commenter" ><p><%= subcomment.comment_id %></p>
+            </div>
+            </div>
+  <% end %>
+<% end %>

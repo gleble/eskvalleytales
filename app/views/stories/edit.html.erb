@@ -1,0 +1,19 @@
+<h2>Edit Story</h2>
+  <% form_for @story, :html => {:multipart => true} do |form| %>
+<fieldset>
+<legend>Enter Your Details</legend>
+<%= error_messages_for "stories" %>
+<label for="author">Author:</label>
+  <%= form.text_field :author %>
+<br />
+<label for="title">Title:</label>
+  <%= form.text_field :title %>
+<br />
+<label for="body">Body:</label>
+  <%= form.text_field :body %>
+<p>
+  <%= form.file_field :photo %>
+</p>
+  <%= submit_tag "Update!", :class => "submit" %>
+</fieldset>
+  <% end %>

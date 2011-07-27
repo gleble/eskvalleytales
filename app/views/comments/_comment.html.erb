@@ -1,0 +1,33 @@
+<%= form_for [@user, Comment.new],:remote => true do |form| %>
+          <div id="body">
+            <%= form.text_field :body %>
+          </div>
+          <% form.hidden_field :user_id, :value => @current_user.login %>
+          <p>
+          <%= form.submit %>
+          </p>
+       <% end %>
+
+       <% @user.comments.each do |comment| %>
+
+          <div id="remark"<p><%= comment.body %>
+          <div id="commenter"<%= comment.commenter %></p> 
+          </div> 
+          </div>
+    
+          <div id="<%= "subcomremark" %>">
+            <% comment.subcomments.each do |subcomment| %>
+            <div id="subremark" ><p><%= subcomment.body %></p>          
+            <div id="commenter" ><p><%= subcomment.commenter %></p>
+            </div>
+            </div>
+          <% end %>
+        
+            <%= form_for [comment, Subcomment.new],:remote => true do |form| %>
+              <div id="body">
+              <%= form.text_field :body %>
+              </div>                   
+              <%= form.submit %>           
+           <% end %>
+         <% end %>
+ 

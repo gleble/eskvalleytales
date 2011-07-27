@@ -1,0 +1,2 @@
+module PusersHelper
+end

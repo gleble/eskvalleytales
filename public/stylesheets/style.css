@@ -1,0 +1,109 @@
+body{
+       width:970px;
+       margin: 0px auto;
+}
+#header{
+       height: 90px;      
+       text-align:center;
+       font-size:61px;
+       font-weight:bold;
+       background-color: #f0f;
+       padding:10px;
+}
+#headtext{
+       position: relative;
+       top:-60px;
+}
+
+p {
+       font-family:Arial ;
+}
+#box{
+       width:970px;
+       margin: 0px auto;
+}
+       
+#remark{
+       border: solid 1px #aaa;
+       width: 350px;
+       padding: 0 5px 2px 5px;
+       max-height: 1000px;
+}
+#commenter{
+        position: relative;
+        top:0px;
+        right:-290px;
+        font-size:11px;
+        font-weight:bold;
+}
+#yield{
+       margin: 0 ;
+}
+#sidebar{
+       background-color: #fff;
+       height:700px;
+       width:250px;
+       border: solid 1px #aaa;
+       position:relative;
+       top: 0px;
+       left: 0px;
+       padding:5px;
+}
+#story{
+        
+        width: 350px;
+        padding: 0 5px ;
+        position:relative;
+        top:-740px;
+        left:270px;
+        height: 12px;
+}
+#index{
+        
+        width: 350px;
+        padding: 0 5px ;
+        position:relative;
+        top:-0px;
+        left:270px;
+        height: 12px;
+}
+#user{
+        border: solid 2px #222;
+        width: 355px;
+        padding: 2px;
+}
+#searchbox{
+        position:relative;
+        top:-745px;
+        left:700px;
+        height:30px;
+        width:50px;
+}
+#form{
+        position:absolute;
+        top:160px;
+        left:850px;
+        height:30px;
+        width:50px
+}     
+a, a#visited {
+    color: maroon;
+    text-decoration: none;
+}
+.letter, .letter_current {
+    width: 1em;
+    text-align: center;
+    border: 1px solid gray;
+    background: #fff;
+    padding: 5px 2px 1px 2px;
+    float: left;
+    margin: 2px
+}
+.letter:hover {
+    background: #fe4;
+}
+.letter_current {
+    background: #fe4;
+    font-weight: bold;
+    border: 1px solid black;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Esk Valley Tales</title>
+  <%= stylesheet_link_tag 'style' %>
+  <%= javascript_include_tag ['jquery-1.6.2', 'application', 'rails'] %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  
+</head>
+<body>
+<div id="header">
+<p id="headtext">Esk Valley Tales</p>
+</div>
+<div id="login_logout">
+<% if @current_user %>
+Logged in as:
+<%= link_to @current_user.login, user_path(@current_user)%>
+<em><%= link_to "(Logout)", sessions_path, :action => 'destroy', :method => :delete  %></em>
+<% else %>
+<em>Not logged in.</em>
+<%= link_to 'Login', new_sessions_path %>
+<%= link_to 'Index', users_path %>
+</div>
+<% end %>
+<br>
+
+<div id="yield">
+<%= yield %>
+</div>
+
+
+</body>
+</html>

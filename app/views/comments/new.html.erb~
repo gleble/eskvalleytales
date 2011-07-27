@@ -1,0 +1,9 @@
+<h2>Make a comment</h2>
+  <% form_for :comment do |form| %>
+<fieldset>
+<label for="body"> Comment:</label>
+  <%= form.text_area :body %>
+<br />
+  <%= submit_tag "Submit!", :class => "submit" %>
+</fieldset>
+  <% end %>

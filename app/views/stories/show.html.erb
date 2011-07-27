@@ -1,0 +1,42 @@
+<div id="box">
+
+    <div id="sidebar">
+      <%= render :partial => 'sidebar' %>
+    </div>
+    <%# @title = (Earl::Url['http://www.guardian.co.uk/'].title) %>
+    <div id="story">
+      <h1><%= @user.login %>&#39;s tale </h1>
+      <%= image_tag @user.photo.url(:small) %>
+      <% x = 1 %>
+      <h4>Content</h4>
+     
+   <div id='aremark'>
+     <%= render :partial => 'comment' %>
+   </div>
+
+    <h5><label for="login">Make a comment:</label></h5>
+<%= form_for :comment,:remote=>true, :url=>story_comments_path(@story) do |form| %>
+       <div id="body">
+           <%= form.text_field :body %>
+       </div>
+       <% form.hidden_field  :user_id, :value => @current_user.login %>
+       <% form.hidden_field  :user, :value => @current_user.id %>
+       <p><%= submit_tag  'Comment' %></p>
+
+  </div>
+
+  <div id="searchbox">
+     <% if @users.size <3 %>
+       <% @users.each do |user| %>
+         <h3><%=  link_to user.login, story_path(user) %></h3>
+      <% end %>
+    <% end %>      
+  <% end %>
+  <%= form_tag story_path, :method => 'get' do %>
+    <%= text_field_tag "search", params[:search] %><br>
+    <%= submit_tag "search", :name => nil, :id => "search" %>
+  <% end  %>
+</div>
+
+
+

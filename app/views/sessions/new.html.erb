@@ -1,0 +1,18 @@
+<% form_tag sessions_path do %>
+<p>Please log in.</p>
+<p>
+  <label>Username:</label>
+  <%= text_field_tag 'login' %>
+</p>
+<p>
+  <label>Password:</label>
+  <%= password_field_tag 'password' %>
+</p>
+<p>
+  <%= submit_tag 'login' %>
+</p>
+<p>
+Forgot your screen name or password?
+<%= link_to "Remind Me!", :controller => "email", :action => "remind" %>
+</p>
+<% end %>
